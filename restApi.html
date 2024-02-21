@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API Endpoints</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>REST API Endpoints</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Route</th>
+            <th>HTTP Method</th>
+            <th>Middleware(s)</th>
+            <th>Handler Function</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Book Routes -->
+        <tr>
+            <td>/books/:bookId/comments</td>
+            <td>GET</td>
+            <td>auth</td>
+            <td>getAllCommentsForBook</td>
+        </tr>
+        <tr>
+            <td>/books/:bookId/comments</td>
+            <td>POST</td>
+            <td>auth</td>
+            <td>addCommentToBook</td>
+        </tr>
+        <tr>
+            <td>/books/:bookId/chapters</td>
+            <td>GET</td>
+            <td></td>
+            <td>getAllChaptersForBook</td>
+        </tr>
+        <tr>
+            <td>/books/:bookId/chapters</td>
+            <td>POST</td>
+            <td>authForAuthorChanges</td>
+            <td>addChapterToBook</td>
+        </tr>
+        <tr>
+            <td>/books</td>
+            <td>GET</td>
+            <td></td>
+            <td>getAllBooks</td>
+        </tr>
+        <tr>
+            <td>/books/:id</td>
+            <td>GET</td>
+            <td></td>
+            <td>getBookById</td>
+        </tr>
+        <tr>
+            <td>/books/?txt</td>
+            <td>GET</td>
+            <td></td>
+            <td>getBookByParameter</td>
+        </tr>
+        <tr>
+            <td>/books</td>
+            <td>POST</td>
+            <td>auth, authForAuthors</td>
+            <td>addBook</td>
+        </tr>
+        <tr>
+            <td>/books/:id</td>
+            <td>PUT</td>
+            <td>auth, authForAuthorChanges</td>
+            <td>updateBook</td>
+        </tr>
+        <tr>
+            <td>/books/:id</td>
+            <td>DELETE</td>
+            <td>auth, authForAuthorChanges</td>
+            <td>deleteBook</td>
+        </tr>
+
+        <!-- Order Routes -->
+        <tr>
+            <td>/orders</td>
+            <td>POST</td>
+            <td>auth</td>
+            <td>addOrder</td>
+        </tr>
+        <tr>
+            <td>/orders/:orderId</td>
+            <td>DELETE</td>
+            <td>auth</td>
+            <td>deleteOrder</td>
+        </tr>
+        <tr>
+            <td>/orders/user/:userId</td>
+            <td>GET</td>
+            <td>auth</td>
+            <td>getUserOrders</td>
+        </tr>
+        <tr>
+            <td>/orders/:orderId</td>
+            <td>PUT</td>
+            <td>auth</td>
+            <td>updateOrder</td>
+        </tr>
+        <tr>
+            <td>/orders/:orderId</td>
+            <td>PUT</td>
+            <td>authForManager</td>
+            <td>updateOrderAfterDispatch</td>
+        </tr>
+
+        <!-- User Routes -->
+        <tr>
+            <td>/users</td>
+            <td>GET</td>
+            <td>authForManager</td>
+            <td>getAllUsers</td>
+        </tr>
+        <tr>
+            <td>/users/register</td>
+            <td>POST</td>
+            <td></td>
+            <td>registerUser</td>
+        </tr>
+        <tr>
+            <td>/users/login</td>
+            <td>POST</td>
+            <td></td>
+            <td>loginUser</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
